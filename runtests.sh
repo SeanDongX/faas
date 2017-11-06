@@ -1,2 +1,1 @@
-(cd gateway/tests && go test -v)
-(cd watchdog && go test -v)
+go test -v $(go list ./... | grep -v /vendor/)
