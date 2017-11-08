@@ -1,0 +1,9 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  csecho:
+    lang: csharp
+    handler: ./src
+    image: wonderxboy/faas-func-csecho:0.1

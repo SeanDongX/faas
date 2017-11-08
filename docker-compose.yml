@@ -224,6 +224,23 @@ services:
                 constraints:
                     - 'node.platform.os == linux'
 
+    # C#(.net core)function to eacho query string and http header（X-Forwarded-By）
+    csecho:
+        image: wonderxboy/faas-func-csecho:0.1
+        labels:
+            function: "true"
+        depends_on:
+            - gateway
+        networks:
+            - functions
+        environment:
+            no_proxy: "gateway"
+            https_proxy: $https_proxy
+        deploy:
+            placement:
+                constraints:
+                    - 'node.platform.os == linux'
+
 networks:
     functions:
         driver: overlay
